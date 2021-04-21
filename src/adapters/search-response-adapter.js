@@ -12,11 +12,16 @@ class SearchResponseAdapter {
   }
 
   getResultsFromResponse(response) {
-    return response.result.hits.map((hit) => ({
-      ...hit._source,
-      _id: hit._source.Id,
-      highlight: hit.highlight,
-    }));
+    try {
+      return response.result.hits.map((hit) => ({
+        ...hit._source,
+        _id: hit._source.Id,
+        highlight: hit.highlight,
+      }));
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
   }
 
   getTotalFromResponse(response) {
