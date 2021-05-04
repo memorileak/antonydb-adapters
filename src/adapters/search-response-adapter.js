@@ -8,7 +8,12 @@ class SearchResponseAdapter {
   }
 
   getAggregationFromResponse(response) {
-    return response.aggregation;
+    try {
+      return response.aggregation;
+    } catch (err) {
+      console.error(err);
+      return {};
+    }
   }
 
   getResultsFromResponse(response) {
@@ -25,7 +30,12 @@ class SearchResponseAdapter {
   }
 
   getTotalFromResponse(response) {
-    return response.result.total.value;
+    try {
+      return response.result.total.value;
+    } catch (err) {
+      console.error(err);
+      return 0;
+    }
   }
 }
 

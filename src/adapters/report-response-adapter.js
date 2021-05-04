@@ -4,7 +4,12 @@ class ReportResponseAdapter {
   }
 
   getReportDataFromResonse(response) {
-    return response.hits[0]._source;
+    try {
+      return response.hits[0]._source;
+    } catch (err) {
+      console.error(err);
+      return {};
+    }
   }
 }
 
