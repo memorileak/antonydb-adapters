@@ -34,7 +34,7 @@ class ReportResponseAdapter {
       risk.entries = risk.entries || [];
       risk.entries.forEach((entry) => {
         if (typeof entry.av === 'string') {
-          entry.av = entry.av.split('|');
+          entry.av = entry.av.split('|').filter((av) => av);
         }
       });
     });
