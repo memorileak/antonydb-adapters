@@ -1,4 +1,5 @@
 const {objUtil} = require('../utils/obj-util.js');
+const {reportResponseAdapter} = require('./report-response-adapter.js');
 
 class FullreportResponseAdapter {
   adapt(response) {
@@ -38,7 +39,8 @@ class FullreportResponseAdapter {
         hardware: this.adaptHardware(hardware),
       };
 
-      return reportData;
+      response.hits[0]._source = reportData;
+      return reportResponseAdapter.adapt(response);
     } catch (err) {
       console.error(err);
       return {};
