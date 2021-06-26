@@ -76,7 +76,8 @@ class FullreportResponseAdapter {
         version: objUtil.path(['version'])(software),
         publisher: objUtil.path(['publisher'])(software),
         location: objUtil.path(['location'])(software),
-      }));
+      }))
+      .filter((software) => software.name);
   }
 
   adaptNetworksAdapter(networks_adapter) {
