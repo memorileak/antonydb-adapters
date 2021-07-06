@@ -1,3 +1,5 @@
+const {objUtil} = require('../utils/obj-util.js');
+
 class ReportResponseAdapter {
   adapt(response) {
     return this.getReportDataFromResponse(response);
@@ -6,6 +8,7 @@ class ReportResponseAdapter {
   getReportDataFromResponse(response) {
     try {
       const reportData = response.hits[0]._source;
+      this.forceOsUsersToBeString(reportData);
       this.highlightMalwareRisks(reportData);
       this.sortRisksByHighlight(reportData);
       this.forceEntryAvToBeList(reportData);
@@ -14,6 +17,13 @@ class ReportResponseAdapter {
       console.error(err);
       return {};
     }
+  }
+
+  forceOsUsersToBeString(reportData) {
+    const users = objUtil.path(['os', 'users'])(reportData) || [];
+    reportData.os.users = Array.isArray(users)
+      ? users.join(', ')
+      : users;
   }
 
   highlightMalwareRisks(reportData) {
