@@ -86,7 +86,7 @@ class FullreportResponseAdapter {
         Type: objUtil.path(['Type'])(adapter),
         AdapterDesc: objUtil.path(['AdapterDesc'])(adapter),
         Gateway: objUtil.path(['Gateway'])(adapter),
-        IpAddress: objUtil.path(['IpAddress'])(adapter),
+        IPAddress: objUtil.path(['IPAddress'])(adapter),
         MAC: objUtil.path(['MAC'])(adapter),
       }));
   }
@@ -163,7 +163,7 @@ class FullreportResponseAdapter {
           serial_number: objUtil.path(['serial_number'])(board),
           version: objUtil.path(['version'])(board),
           manufacturer: objUtil.path(['manufacturer'])(board),
-        })), 
+        })),
       bios: (objUtil.path(['bios'])(hardware) || [])
         .map((aBios) => ({
           description: objUtil.path(['description'])(aBios),
@@ -172,7 +172,7 @@ class FullreportResponseAdapter {
           release_date: objUtil.path(['release_date'])(aBios),
           smbbios_version: objUtil.path(['smbbios_version'])(aBios),
           version: objUtil.path(['version'])(aBios),
-        })), 
+        })),
       cpus: (objUtil.path(['cpus'])(hardware) || [])
         .map((cpu) => ({
           architecture: objUtil.path(['architecture'])(cpu),
@@ -194,7 +194,7 @@ class FullreportResponseAdapter {
           soket_designation: objUtil.path(['soket_designation'])(cpu),
           status: objUtil.path(['status'])(cpu),
           thread_count: objUtil.path(['thread_count'])(cpu),
-        })), 
+        })),
       memories: (objUtil.path(['memories'])(hardware) || [])
         .map((mem) => ({
           caption: objUtil.path(['caption'])(mem),
@@ -208,7 +208,7 @@ class FullreportResponseAdapter {
           part_number: objUtil.path(['part_number'])(mem),
           serial_number: objUtil.path(['serial_number'])(mem),
           size: objUtil.path(['size'])(mem),
-        })), 
+        })),
       graphics: (objUtil.path(['graphics'])(hardware) || [])
         .map((gpu) => ({
           adapter_compatibility: objUtil.path(['adapter_compatibility'])(gpu),
@@ -223,7 +223,7 @@ class FullreportResponseAdapter {
           status: objUtil.path(['status'])(gpu),
           video_mode_description: objUtil.path(['video_mode_description'])(gpu),
           video_processor: objUtil.path(['video_processor'])(gpu),
-        })), 
+        })),
       storage: {
         physical: (objUtil.path(['storage', 'physical'])(hardware) || [])
           .map((storage) => ({
@@ -259,7 +259,7 @@ class FullreportResponseAdapter {
             serial_number: objUtil.path(['serial_number'])(storage),
             size: objUtil.path(['size'])(storage),
           })),
-      }
+      },
     };
   }
 }

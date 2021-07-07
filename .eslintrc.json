@@ -21,6 +21,6 @@
     "space-before-function-paren": ["error", "never"],
     "comma-dangle": ["error", "always-multiline"],
     "operator-linebreak": ["error", "before"],
-    "camelcase": ["eror", {"properties": "never"}]
+    "camelcase": ["off", {"properties": "never"}]
   }
 }
