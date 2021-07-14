@@ -260,6 +260,22 @@ class FullreportResponseAdapter {
             size: objUtil.path(['size'])(storage),
           })),
       },
+      pcis: (objUtil.path(['pcis'])(hardware) || [])
+        .map((pci) => ({
+          caption: objUtil.path(['caption'])(pci),
+          description: objUtil.path(['description'])(pci),
+          manufacturer: objUtil.path(['manufacturer'])(pci),
+          device_id: objUtil.path(['device_id'])(pci),
+          name: objUtil.path(['name'])(pci),
+        })),
+      usbs: (objUtil.path(['usbs'])(hardware) || [])
+        .map((usb) => ({
+          caption: objUtil.path(['caption'])(usb),
+          description: objUtil.path(['description'])(usb),
+          manufacturer: objUtil.path(['manufacturer'])(usb),
+          device_id: objUtil.path(['device_id'])(usb),
+          name: objUtil.path(['name'])(usb),
+        })),
     };
   }
 }
