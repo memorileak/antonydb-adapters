@@ -113,7 +113,7 @@ class FullreportResponseAdapter {
 
   adaptNetworks(networks) {
     return {
-      // dns_cache: objUtil.path(['dns_cache'])(networks) || [],
+      dns_cache: objUtil.path(['dns_cache'])(networks) || [],
       netstat: (objUtil.path(['netstat'])(networks) || [])
         .map((stat) => ({
           pid: objUtil.path(['pid'])(stat),
