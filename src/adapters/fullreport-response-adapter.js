@@ -177,6 +177,7 @@ class FullreportResponseAdapter {
         .map((cpu) => ({
           architecture: objUtil.path(['architecture'])(cpu),
           caption: objUtil.path(['caption'])(cpu),
+          code_name: objUtil.path(['code_name'])(cpu),
           device_id: objUtil.path(['device_id'])(cpu),
           L2cache_size: objUtil.path(['L2cache_size'])(cpu),
           L2cache_speed: objUtil.path(['L2cache_speed'])(cpu),
@@ -197,6 +198,7 @@ class FullreportResponseAdapter {
         })),
       memories: (objUtil.path(['memories'])(hardware) || [])
         .map((mem) => ({
+          bus: objUtil.path(['bus'])(mem),
           caption: objUtil.path(['caption'])(mem),
           configure_clock_speed: objUtil.path(['configure_clock_speed'])(mem),
           configure_voltage: objUtil.path(['configure_voltage'])(mem),
