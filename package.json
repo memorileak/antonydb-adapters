@@ -1,7 +1,7 @@
 {
   "name": "antonydb-adapters",
   "version": "1.0.0",
-  "description": "Deals with volatile response of MCTS backend",
+  "description": "Deals with volatile response of Syscom backend",
   "scripts": {
     "test": "jest"
   },
